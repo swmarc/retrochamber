@@ -1,6 +1,14 @@
 # RetroChamber
 
-Based on Emulation Station Desktop Edition with a focus on well pre-configured standalone emulators.<br>
+Based on Emulation Station Desktop Edition with a focus on well pre-configured standalone emulators.
+
+***Beware that this is an early preview version as of now.***
+
+Before starting the first time, you can already place ROMs in the `roms/` directory, but it's not required.
+At first run, `RetroChamber` will download & initialize `RetroArch` (stable), `Libretro` (nightly) cores, `EmulationStation Desktop Edition` (stable) & standalone emulators (stable/nightly) as an AppImage.
+
+A list of available platforms can be found <a href="https://gitlab.com/es-de/emulationstation-de/-/blob/master/USERGUIDE.md?ref_type=heads#supported-game-systems">here</a>, but not all platforms are yet or will be supported in `RetroChamber`.
+
 <img src="https://raw.githubusercontent.com/swmarc/RetroChamber/main/images/retro_chamber_logo-720.jpg" width="300px">
 
 ## Compatibility List
