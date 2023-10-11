@@ -77,8 +77,8 @@ Based on Emulation Station Desktop Edition with a focus on well pre-configured s
 | ***Libretro Core(s)*** |                 | ***Standalone***          |         |
 | LRPS                   | 🔴               | PCSX2 - Setup Mode        | 🟢       |
 |                        |                 | PCSX2 - Gaming Mode       | 🟢       |
-|                        |                 | Play! - Setup Mode        | ⚪       |
-|                        |                 | Play! - Gaming Mode       | ⚪       |
+|                        |                 | Play! - Setup Mode        | 🟢       |
+|                        |                 | Play! - Gaming Mode       | 🟢       |
 | **PSX**                |                 |                           |         |
 | ***Libretro Core(s)*** |                 | ***Standalone***          |         |
 | Swanstation            | 🟢               | Duckstation - Setup Mode  | 🟢       |
