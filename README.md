@@ -5,6 +5,8 @@ Based on Emulation Station Desktop Edition with a focus on well pre-configured s
 
 ## Compatibility List
 
+Libretro cores are based on nightly builds.
+
 | Works                  | Partially works | Not working               | Unknown |
 | ---------------------- | --------------- | ------------------------- | ------- |
 | 🟢                      | 🟡               | 🔴                         | ⚪       |
@@ -87,7 +89,7 @@ Based on Emulation Station Desktop Edition with a focus on well pre-configured s
 | Beetle PSX HW          | 🟢               |                           |         |
 | **SCUMMVM**            |                 |                           |         |
 | ***Libretro Core(s)*** |                 | ***Standalone***          |         |
-| ScummVM                | 🟢               | ScummVM                   | 🟡       |
+| ScummVM                | 🟢               | ScummVM                   | 🟢       |
 | **SNES**               |                 |                           |         |
 | ***Libretro Core(s)*** |                 | ***Standalone***          |         |
 | Snes9x - Current       | 🟢               | Snes9x                    | ⚪       |
