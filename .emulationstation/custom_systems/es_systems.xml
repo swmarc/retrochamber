@@ -488,7 +488,7 @@
         <fullname>Sega Dreamcast</fullname>
         <path>%ROMPATH%/dreamcast</path>
         <extension>.chd .CHD .cdi .CDI .iso .ISO .elf .ELF .cue .CUE .gdi .GDI .lst .LST .dat .DAT .m3u .M3U .7z .7Z .zip .ZIP</extension>
-        <command label="LRPS2">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/flycast_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Flycast">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/flycast_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Flycast (Standalone)">%EMULATOR_FLYCAST% -rom "%ROM%"</command>
         <command label="Redream (Standalone)">%EMULATOR_REDREAM% -rom "%ROM%"</command>
         <platform>dreamcast</platform>
@@ -700,7 +700,7 @@
         <fullname>Nintendo GameCube</fullname>
         <path>%ROMPATH%/gc</path>
         <extension>.ciso .CISO .dff .DFF .dol .DOL .elf .ELF .gcm .GCM .gcz .GCZ .iso .ISO .json .JSON .m3u .M3U .rvz .RVZ .tgc .TGC .wad .WAD .wbfs .WBFS .wia .WIA .7z .7Z .zip .ZIP</extension>
-        <command label="Dolphin">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dolphin_libretro.so" -rom "%ROM%"</command>
+        <command label="Dolphin">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dolphin_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Dolphin (Standalone)">%INJECT%=%BASENAME%.esprefix %EMULATOR_DOLPHIN% -b -e -rom "%ROM%"</command>
         <command label="PrimeHack (Standalone)">%INJECT%=%BASENAME%.esprefix %EMULATOR_PRIMEHACK% -b -e -rom "%ROM%"</command>
         <command label="Triforce (Standalone)">%INJECT%=%BASENAME%.esprefix %EMULATOR_TRIFORCE% -b -e -rom "%ROM%"</command>
