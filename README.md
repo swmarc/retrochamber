@@ -15,46 +15,50 @@ A list of available platforms can be found <a href="https://gitlab.com/es-de/emu
 
 Libretro cores are based on nightly builds.
 
-| Works                  | Partially works | Not working               | Unknown |
-| ---------------------- | --------------- | ------------------------- | ------- |
-| 🟢                      | 🟡               | 🔴                         | ⚪       |
-| **3DO**                |                 |                           |         |
-| ***Libretro Core(s)*** |                 |                           |         |
-| Opera                  | ⚪               |                           |         |
-| **AGS**                |                 |                           |         |
+| Works                  | Partially works | Not working               | Unknown | Unsopprted                                     |
+| ---------------------- | --------------- | ------------------------- | ------- | ---------------------------------------------- |
+| 🟢                      | 🟡               | 🔴                         | ⚪       | 🔵                                              |
+|                        |                 |                           |         |                                                |
+| **Libretro Core(s)**   |                 | **Standalone**            |         | **Known issues**                               |
+|                        |                 |                           |         |                                                |
+| ***3DO***              |                 |                           |         |
+| Opera                  | 🟢               |                           |         |
+|                        |                 |                           |         |                                                |
+| ***AGS***              |                 |                           |         |
+| \-                     | \-              | \-                        | \-      | \-                                             |
+|                        |                 |                           |         |                                                |
+| ***AMIGA***            |                 |                           |         |
+| PUAE                   | 🟡               |                           |         | Stores data in $HOME/.config/retroarch         |
+| PUAE 2021              | 🟡               |                           |         | Stores data in $HOME/.config/retroarch         |
+|                        |                 |                           |         |                                                |
+| ***AMIGA1200***        |                 |                           |         |
+| PUAE                   | ⚪               |                           |         | Stores data in $HOME/.config/retroarch         |
+| PUAE 2021              | ⚪               |                           |         | Stores data in $HOME/.config/retroarch         |
+|                        |                 |                           |         |                                                |
+| ***AMIGA600***         |                 |                           |         |
+| PUAE                   | ⚪               |                           |         | Stores data in $HOME/.config/retroarch         |
+| PUAE 2021              | ⚪               |                           |         | Stores data in $HOME/.config/retroarch         |
+|                        |                 |                           |         |                                                |
+| ***AMIGACD32***        |                 |                           |         |
+| PUAE                   | 🟢               |                           |         | Stores data in $HOME/.config/retroarch         |
+| PUAE 2021              | 🟢               |                           |         | Stores data in $HOME/.config/retroarch         |
+|                        |                 |                           |         |                                                |
+| ***AMSTRADCPC***       |                 |                           |         |
+| Caprice32              | 🟢               | CPCemu                    | 🔴       | Doesn't accept custom configuration file by /c |
+| CrocoDS                | 🟢               | MAME                      | 🔵       |
+|                        |                 |                           |         |                                                |
+| ***ANDROID***          |                 |                           |         |
 | ---                    | ---             | ---                       | ---     |
-| **AMIGA**              |                 |                           |         |
-| ***Libretro Core(s)*** |                 |                           |         |
-| PUAE                   | ⚪               |                           |         |
-| PUAE 2021              | ⚪               |                           |         |
-| **AMIGA1200**          |                 |                           |         |
-| ***Libretro Core(s)*** |                 |                           |         |
-| PUAE                   | ⚪               |                           |         |
-| PUAE 2021              | ⚪               |                           |         |
-| **AMIGA600**           |                 |                           |         |
-| ***Libretro Core(s)*** |                 |                           |         |
-| PUAE                   | ⚪               |                           |         |
-| PUAE 2021              | ⚪               |                           |         |
-| **AMIGACD32**          |                 |                           |         |
-| ***Libretro Core(s)*** |                 |                           |         |
-| PUAE                   | ⚪               |                           |         |
-| PUAE 2021              | ⚪               |                           |         |
-| **AMSTRADCPC**         |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
-| Caprice32              | ⚪               | CPCemu                    | ⚪       |
-| CrocoDS                | ⚪               | MAME                      | ⚪       |
-| **ANDROID**            |                 |                           |         |
-| ---                    | ---             | ---                       | ---     |
-| **APPLE2**             |                 |                           |         |
-|                        |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***APPLE2***           |                 |                           |         |
 |                        |                 | LinApple                  | ⚪       |
 |                        |                 | Mednafen                  | ⚪       |
 |                        |                 | MAME                      | ⚪       |
-| **APPLE2GS**           |                 |                           |         |
-|                        |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***APPLE2GS***         |                 |                           |         |
 |                        |                 | MAME                      | ⚪       |
-| **ARCADE**             |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***ARCADE***           |                 |                           |         |
 | MAME - Current         | ⚪               | MAME                      | ⚪       |
 | MAME 2010              | ⚪               | FinalBurn Neo             | ⚪       |
 | MAME 2003-Plus         | ⚪               | Flycast                   | ⚪       |
@@ -63,43 +67,43 @@ Libretro cores are based on nightly builds.
 | FB Alpha 2012          | ⚪               |                           |         |
 | Flycast                | ⚪               |                           |         |
 | Kronos                 | ⚪               |                           |         |
-| **ARCADIA**            |                 |                           |         |
-|                        |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***ARCADIA***          |                 |                           |         |
 |                        |                 | MAME                      | ⚪       |
-| **ARDUBOY**            |                 |                           |         |
-| ***Libretro Core(s)*** |                 |                           |         |
+|                        |                 |                           |         |                                                |
+| ***ARDUBOY***          |                 |                           |         |
 | Arduous                | ⚪               |                           |         |
-| **ASTROCDE**           |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***ASTROCDE***         |                 |                           |         |
 | MAME - Current         | ⚪               | MAME                      | ⚪       |
-| **ATARI2600**          |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***ATARI2600***        |                 |                           |         |
 | Stella                 | ⚪               | Stella                    | ⚪       |
 | Stella 2014            | ⚪               | Gopher2600                | ⚪       |
 |                        |                 | ares                      | ⚪       |
-| **NES**                |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***NES***              |                 |                           |         |
 | Mesen                  | 🟢               | puNES                     | ⚪       |
 | Nestopia UA            | 🟢               | Mednafen                  | ⚪       |
 | FCEUmm                 | 🟢               | ares                      | ⚪       |
 | QuickNES               | 🟢               | ares FDS                  | ⚪       |
-| **PS2**                |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***PS2***              |                 |                           |         |
 | LRPS                   | 🔴               | PCSX2 - Setup Mode        | 🟢       |
 |                        |                 | PCSX2 - Gaming Mode       | 🟢       |
 |                        |                 | Play! - Setup Mode        | 🟢       |
 |                        |                 | Play! - Gaming Mode       | 🟢       |
-| **PSX**                |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***PSX***              |                 |                           |         |
 | Swanstation            | 🟢               | Duckstation - Setup Mode  | 🟢       |
 | PCSX ReARMed           | 🟢               | Duckstation - Gaming Mode | 🟢       |
 | Beetle PSX             | 🟢               | Mednafen                  | ⚪       |
 | Beetle PSX HW          | 🟢               |                           |         |
-| **SCUMMVM**            |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***SCUMMVM***          |                 |                           |         |
 | ScummVM                | 🟢               | ScummVM                   | 🟢       |
-| **SNES**               |                 |                           |         |
-| ***Libretro Core(s)*** |                 | ***Standalone***          |         |
+|                        |                 |                           |         |                                                |
+| ***SNES***             |                 |                           |         |
 | Snes9x - Current       | 🟢               | Snes9x                    | ⚪       |
 | Snes9x 2010            | 🟢               | bsnes                     | ⚪       |
 | bsnes                  | 🟢               | Mednafen                  | ⚪       |
@@ -107,3 +111,4 @@ Libretro cores are based on nightly builds.
 | bsnes-mercury Accuracy | 🟢               |                           |         |
 | Beetle Supafaust       | 🟢               |                           |         |
 | Mesen-S                | 🟢               |                           |         |
+|                        |                 |                           |         |                                                |
