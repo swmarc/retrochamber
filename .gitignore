@@ -1,12 +1,12 @@
 .config/**/
-.emulationstation/**
+.emulationstation/
 .emulationstation/es_log.*
 .emulationstation/es_systems.xml
-.retroarch/**
+.retroarch/
 binaries/*.AppImage
 binaries/VERSION.*
 exec/GITHUB_TOKEN
 logs/*.log
-roms/**
-tmp/archive/**/
+roms/
+tmp/archive/
 SETUP
