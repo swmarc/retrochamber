@@ -90,7 +90,7 @@ Libretro cores are based on nightly builds.
 | ProSystem              | ⚪               |                           |         |
 |                        |                 |                           |         |
 | ***DREAMCAST***        |                 |                           |         |
-| Flycast                | 🟢               | Flycast                   | ⚪       |
+| Flycast                | 🟢               | Flycast                   | ⚪       | Core: Stores data in $HOME/.config/flycast   |
 |                        |                 | redream                   | ⚪       |
 |                        |                 |                           |         |
 | ***NES***              |                 |                           |         |
