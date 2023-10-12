@@ -85,8 +85,8 @@
         <fullname>Apple II</fullname>
         <path>%ROMPATH%/apple2</path>
         <extension>.do .DO .dsk .DSK .nib .NIB .po .PO</extension>
-        <command label="LinApple (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/apple2/start.sh" -zip-mount 0 -rom "%ROM%"</command>
-        <command label="Mednafen (Standalone)">%EMULATOR_MEDNAFEN% -force_module apple2 -rom "%ROM%"</command>
+        <command label="LinApple (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/linapple/start.sh" -zip-mount 0 -rom "%ROM%"</command>
+        <command label="Mednafen (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/mednafen/start-apple2.sh" -zip-mount 0 -rom "%ROM%"</command>
         <command label="MAME (Standalone)">%STARTDIR%=~/.mame %EMULATOR_MAME% -rompath %GAMEDIR%\;%ROMPATH%/apple2 apple2e -flop1 -rom "%ROM%"</command>
         <platform>apple2</platform>
         <theme>apple2</theme>
