@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=RetroChamber Emulation Center
+GenericName=RetroChamber Emulation Center
+Comment=RetroArch is based on EmulationStation Desktop Edition
+Exec=bash -c 'cd $(dirname %k) && ./exec/start.sh'
+Terminal=true
+Type=Application
+Categories=Game;Emulator;
+Keywords=Game;Emulator;Arcade;
