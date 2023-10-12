@@ -7,6 +7,7 @@ SCRIPT_UPDATE=$(basename "${BASH_SOURCE[0]}" .sh)
 GITHUB_TOKEN=""
 TARGET_APPIMAGE_PATH="$(realpath "${CWD}/../binaries")"
 
+source "${CWD}/../lib/access.sh"
 source "${CWD}/../lib/print.sh"
 
 if [ -f "${CWD}/GITHUB_TOKEN" ]; then
@@ -479,6 +480,7 @@ update_bios () {
     "${CWD}/../.retroarch/system/" |\
     pv -ltaep -w 80 -s "${RSYNC_FILES}" \
     >/dev/null
+  retrochamber.lib.access.fix_permissions "${CWD}/../.retroarch/"
 
   fusermount -u "${CWD}/.tmp"
   rm -f "${CWD}/${TARGET_FILENAME}.zip"
