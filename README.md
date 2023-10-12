@@ -52,11 +52,11 @@ Libretro cores are based on nightly builds.
 |                        |                 |                           |         |                                                |
 | ***APPLE2***           |                 |                           |         |
 |                        |                 | LinApple                  | 🟢       |
-|                        |                 | Mednafen                  | ⚪       |
-|                        |                 | MAME                      | ⚪       |
+|                        |                 | Mednafen                  | 🟢       |
+|                        |                 | MAME                      | 🔵       |
 |                        |                 |                           |         |                                                |
 | ***APPLE2GS***         |                 |                           |         |
-|                        |                 | MAME                      | ⚪       |
+|                        |                 | MAME                      | 🔵       |
 |                        |                 |                           |         |                                                |
 | ***ARCADE***           |                 |                           |         |
 | MAME - Current         | ⚪               | MAME                      | ⚪       |
@@ -82,6 +82,17 @@ Libretro cores are based on nightly builds.
 | Stella 2014            | ⚪               | Gopher2600                | ⚪       |
 |                        |                 | ares                      | ⚪       |
 |                        |                 |                           |         |                                                |
+| ***ATARI5200***        |                 |                           |         |
+| a5200                  | ⚪               | Atari800                  | ⚪       |
+| Atari800               | ⚪               |                           |         |
+|                        |                 |                           |         |                                                |
+| ***ATARI7800***        |                 |                           |         |
+| ProSystem              | ⚪               |                           |         |
+|                        |                 |                           |         |
+| ***DREAMCAST***        |                 |                           |         |
+| Flycast                | 🟢               | Flycast                   | ⚪       |
+|                        |                 | redream                   | ⚪       |
+|                        |                 |                           |         |
 | ***NES***              |                 |                           |         |
 | Mesen                  | 🟢               | puNES                     | ⚪       |
 | Nestopia UA            | 🟢               | Mednafen                  | ⚪       |
