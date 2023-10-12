@@ -491,6 +491,44 @@ update_bios () {
   sleep 0.5
 }
 
+update_bios_capsimg () {
+  # Hard code, since it seems there won't be any newer version.
+  local DOWNLOAD_URL="https://fs-uae.net/files/CAPSImg/Stable/5.1.4/CAPSImg_5.1.4_Linux_x86-64.tar.xz"
+  local PROJECT="" PROJECT_FILE="" PROJECT_PRINT="" TAG_NAME="" VERSION_FILE=""
+
+  PROJECT="CAPSImg"
+  PROJECT_FILE="capsimg.so"
+  PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
+  VERSION_FILE="${TARGET_APPIMAGE_PATH}/VERSION.capsimg"
+  TAG_NAME=$(echo "${DOWNLOAD_URL}" | rev | cut -d/ -f2 | rev)
+
+  if [ ! -f "${VERSION_FILE}" ]; then
+    touch "${VERSION_FILE}"
+  fi
+
+  if [ "$(cat "${VERSION_FILE}")" == "${TAG_NAME}" ]; then
+    retrochamber.lib.print.info "${SCRIPT_UPDATE}" "No update for project '${PROJECT}'."
+    return
+  fi
+
+  retrochamber.lib.print.success "${SCRIPT_UPDATE}" "Update available for project '${PROJECT}'. New version is '${TAG_NAME}'."
+  mkdir -p "${CWD}/.tmp"
+  (
+    cd "${CWD}/.tmp"
+    wget -q --show-progress -O- "${DOWNLOAD_URL}" | bsdtar -xf-
+    find "${CWD}/.tmp" \
+      -type f \
+      -name "${PROJECT_FILE}" \
+      -exec mv {} "${CWD}/../.retroarch/system/" \;
+  )
+  retrochamber.lib.access.fix_permissions "${CWD}/../.retroarch/"
+  rm -rf "${CWD:?}/.tmp"
+  echo "${TAG_NAME}" > "${VERSION_FILE}"
+
+  retrochamber.lib.print.success "${SCRIPT_UPDATE}" "Update done."
+  sleep 0.5
+}
+
 update_retroarch
 update_libretro
 update_gitlab
@@ -499,3 +537,4 @@ update_github_citra
 update_github_from_tarball
 update_play_stable
 update_bios
+update_bios_capsimg
