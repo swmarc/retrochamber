@@ -2,13 +2,16 @@
 
 set -eu -o pipefail
 
+CWD_LIB_PATHS="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 LIB_PATHS=$(basename "${BASH_SOURCE[0]}" .sh)
+
+source "${CWD_LIB_PATHS}/print.sh"
 
 retrochamber.lib.paths.escape () {
   local VALUE=${1:-}
 
   if [ -z "${VALUE}" ]; then
-    echo "[${LIB_PATHS}] [+++] <$(date -u --rfc-3339=seconds)> Path value is empty."
+    retrochamber.lib.print.fail "${LIB_PATHS}" "Path value is empty."
     exit 1
   fi
 
@@ -19,7 +22,7 @@ retrochamber.lib.paths.unescape () {
   local VALUE=${1:-}
 
   if [ -z "${VALUE}" ]; then
-    echo "[${LIB_PATHS}] [+++] <$(date -u --rfc-3339=seconds)> Path value is empty."
+    retrochamber.lib.print.fail "${LIB_PATHS}" "Path value is empty."
     exit 1
   fi
 
