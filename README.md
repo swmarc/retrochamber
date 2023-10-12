@@ -51,7 +51,7 @@ Libretro cores are based on nightly builds.
 | ---                    | ---             | ---                       | ---     |
 |                        |                 |                           |         |                                                |
 | ***APPLE2***           |                 |                           |         |
-|                        |                 | LinApple                  | ⚪       |
+|                        |                 | LinApple                  | 🟢       |
 |                        |                 | Mednafen                  | ⚪       |
 |                        |                 | MAME                      | ⚪       |
 |                        |                 |                           |         |                                                |
