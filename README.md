@@ -24,6 +24,10 @@ Libretro cores are based on nightly builds.
 | ***3DO***              |                 |                          |         |
 | Opera                  | 🟢               |                          |         |
 |                        |                 |                          |         |                                                |
+| ***N3DS***             |                 |                          |         |
+| Citra                  | 🟢               | Citra                    | 🔴       |                                                |
+| Citra 2018             | 🟢               |                          |         |
+|                        |                 |                          |         |                                                |
 | ***AGS***              |                 |                          |         |
 | \-                     | \-              | \-                       | \-      | \-                                             |
 |                        |                 |                          |         |                                                |
@@ -128,4 +132,9 @@ Libretro cores are based on nightly builds.
 | bsnes-mercury Accuracy | 🟢               |                          |         |
 | Beetle Supafaust       | 🟢               |                          |         |
 | Mesen-S                | 🟢               |                          |         |
+|                        |                 |                          |         |                                                |
+| ***WII***              |                 |                          |         |
+| Dolphin                | 🟢               | Dolphin                  | 🔵       |                                                |
+|                        |                 | PrimeHack                | 🔵       |
+|                        |                 | Triforce                 | 🔵       |
 |                        |                 |                          |         |                                                |

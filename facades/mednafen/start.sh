@@ -34,7 +34,7 @@ COMMAND+=(" -filesys.path_firmware \"${CWD_MEDNAFEN_APPLE2}/../../.retroarch/sys
 COMMAND+=(" -video.fs 1")
 COMMAND+=(" \"${ROM}\"")
 
-retrochamber.lib.print.info "${SCRIPT_MEDNAFEN_APPLE2}" "Starting Mednafen (apple2)."
+retrochamber.lib.print.info "${SCRIPT_MEDNAFEN_APPLE2}" "Starting Mednafen (apple2) in playing mode."
 retrochamber.lib.print.debug "${SCRIPT_MEDNAFEN_APPLE2}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
 eval "${COMMAND[@]}"
