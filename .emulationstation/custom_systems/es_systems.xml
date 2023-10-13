@@ -86,8 +86,8 @@
         <path>%ROMPATH%/apple2</path>
         <extension>.do .DO .dsk .DSK .nib .NIB .po .PO</extension>
         <command label="LinApple (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/linapple/start.sh" -zip-mount 0 -rom "%ROM%"</command>
-        <command label="Mednafen (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/mednafen/start-apple2.sh" -zip-mount 0 -rom "%ROM%"</command>
-        <command label="MAME (Standalone)">%STARTDIR%=~/.mame %EMULATOR_MAME% -rompath %GAMEDIR%\;%ROMPATH%/apple2 apple2e -flop1 -rom "%ROM%"</command>
+        <command label="Mednafen (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/mednafen/start.sh" -zip-mount 0 -rom "%ROM%"</command>
+        <!-- <command label="MAME (Standalone)">%STARTDIR%=~/.mame %EMULATOR_MAME% -rompath %GAMEDIR%\;%ROMPATH%/apple2 apple2e -flop1 -rom "%ROM%"</command> -->
         <platform>apple2</platform>
         <theme>apple2</theme>
     </system>
@@ -1451,11 +1451,11 @@
         <fullname>Sega Saturn</fullname>
         <path>%ROMPATH%/saturn</path>
         <extension>.bin .BIN .ccd .CCD .chd .CHD .cue .CUE .iso .ISO .mds .MDS .toc .TOC .m3u .M3U .7z .7Z .zip .ZIP</extension>
-        <command label="Beetle Saturn">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/mednafen_saturn_libretro.so" -rom "%ROM%"</command>
-        <command label="Kronos">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/kronos_libretro.so" -rom "%ROM%"</command>
-        <command label="YabaSanshiro">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/yabasanshiro_libretro.so" -rom "%ROM%"</command>
-        <command label="Yabause">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/yabause_libretro.so" -rom "%ROM%"</command>
-        <command label="Mednafen (Standalone)">%EMULATOR_MEDNAFEN% -force_module ss -rom "%ROM%"</command>
+        <command label="Beetle Saturn">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mednafen_saturn_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Kronos">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/kronos_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="YabaSanshiro">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/yabasanshiro_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Yabause">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/yabause_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Mednafen (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/mednafen/start.sh" -zip-mount 1 -rom "%ROM%"</command>
         <platform>saturn</platform>
         <theme>saturn</theme>
     </system>
