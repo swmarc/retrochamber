@@ -34,7 +34,7 @@ COMMAND+=(" -f")
 COMMAND+=(" --autoboot")
 COMMAND+=(" --d1 \"${ROM}\"")
 
-retrochamber.lib.print.info "${SCRIPT_LINAPPLE}" "Starting LinApple."
+retrochamber.lib.print.info "${SCRIPT_LINAPPLE}" "Starting LinApple playing mode."
 retrochamber.lib.print.debug "${SCRIPT_LINAPPLE}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
 eval "${COMMAND[@]}"

@@ -42,7 +42,7 @@ COMMAND+=(" --path=\"${GAME_PATH}\"")
 COMMAND+=(" --savepath=\"${CWD_SCUMMVM}/../../.config/scummvm/saves\"")
 COMMAND+=(' --auto-detect')
 
-retrochamber.lib.print.info "${SCRIPT_SCUMMVM}" "Starting ScummVM."
+retrochamber.lib.print.info "${SCRIPT_SCUMMVM}" "Starting ScummVM in playing mode."
 retrochamber.lib.print.debug "${SCRIPT_SCUMMVM}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
 eval "${COMMAND[@]}"
