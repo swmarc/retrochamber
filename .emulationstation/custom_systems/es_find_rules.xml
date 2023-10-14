@@ -191,7 +191,7 @@
             <entry>~/binaries/easyrpg-player.AppImage</entry>
         </rule>
     </emulator>
-    <emulator name="FINALBURN-NEO">
+    <emulator name="FINALBURN_NEO">
         <!-- Arcade emulator FinalBurn Neo -->
         <rule type="staticpath">
             <entry>~/binaries/fbneo.AppImage</entry>
