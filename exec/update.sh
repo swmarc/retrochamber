@@ -231,6 +231,7 @@ update_github () {
     ["swmarc/emulation-appimages>nestopia"]="nestopia-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>openmsx"]="openmsx-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>pico8"]="pico8-.*-x86_64.AppImage"
+    ["swmarc/emulation-appimages>punes"]="punes-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>scummvm"]="scummvm-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>simcoupe"]="simcoupe-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>stella"]="stella-.*-x86_64.AppImage"
@@ -507,7 +508,7 @@ update_bios_capsimg () {
   fi
 
   if [ "$(cat "${VERSION_FILE}")" == "${TAG_NAME}" ]; then
-    retrochamber.lib.print.info "${SCRIPT_UPDATE}" "No update for project '${PROJECT}'."
+    retrochamber.lib.print.info "${SCRIPT_UPDATE}" "No update for project '${PROJECT_PRINT}'."
     return
   fi
 
