@@ -561,7 +561,7 @@
         <path>%ROMPATH%/fbneo</path>
         <extension>.7z .7Z .zip .ZIP</extension>
         <command label="FinalBurn Neo">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/fbneo_libretro.so" -rom "%ROM%"</command>
-        <command label="FinalBurn Neo (Standalone)">%EMULATOR_FINALBURN-NEO% -fullscreen %BASENAME%</command>
+        <!-- <command label="FinalBurn Neo (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/fbneo/start.sh" -zip-mount 0 -gamedir "%GAMEDIR%" -rom "%BASENAME%"</command> -->
         <platform>arcade</platform>
         <theme>fbneo</theme>
     </system>

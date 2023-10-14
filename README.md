@@ -24,10 +24,6 @@ Libretro cores are based on nightly builds.
 | ***3DO***              |                 |                          |         |
 | Opera                  | 🟢               |                          |         |
 |                        |                 |                          |         |                                                |
-| ***N3DS***             |                 |                          |         |
-| Citra                  | 🟢               | Citra                    | 🔴       |                                                |
-| Citra 2018             | 🟢               |                          |         |
-|                        |                 |                          |         |                                                |
 | ***AGS***              |                 |                          |         |
 | \-                     | \-              | \-                       | \-      | \-                                             |
 |                        |                 |                          |         |                                                |
@@ -95,8 +91,15 @@ Libretro cores are based on nightly builds.
 |                        |                 |                          |         |
 | ***DREAMCAST***        |                 |                          |         |
 | Flycast                | 🟢               | Flycast                  | ⚪       | Core: Stores data in $HOME/.config/flycast     |
-|                        |                 | redream                  | ⚪       |
+|                        |                 | redream                  | 🔵       |
 |                        |                 |                          |         |
+| ***FBNEO***            |                 |                          |         |
+| FinalBurn Neo          | 🟢               | FinalBurn Neo            | 🔴       | Doesn't accept custom configuration            |
+|                        |                 |                          |         |                                                |
+| ***N3DS***             |                 |                          |         |
+| Citra                  | 🟢               | Citra                    | 🔴       |                                                |
+| Citra 2018             | 🟢               |                          |         |
+|                        |                 |                          |         |                                                |
 | ***NES***              |                 |                          |         |
 | Mesen                  | 🟢               | puNES                    | ⚪       |
 | Nestopia UA            | 🟢               | Mednafen                 | ⚪       |
