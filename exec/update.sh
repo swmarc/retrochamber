@@ -215,6 +215,7 @@ update_github () {
     ["swmarc/emulation-appimages>atari800"]="atari800-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>blastem"]="blastem-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>cpcemu"]="cpcemu-.*-x86_64.AppImage"
+    ["swmarc/emulation-appimages>dolphin-emu"]="dolphin-emu-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>dosbox-staging"]="dosbox-staging-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>dosbox-x"]="dosbox-x-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>easyrpg-player"]="easyrpg-player-.*-x86_64.AppImage"
