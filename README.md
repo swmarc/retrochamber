@@ -90,12 +90,16 @@ Libretro cores are based on nightly builds.
 | ProSystem              | ⚪               |                          |         |
 |                        |                 |                          |         |
 | ***DREAMCAST***        |                 |                          |         |
-| Flycast                | 🟢               | Flycast                  | ⚪       | Core: Stores data in $HOME/.config/flycast     |
+| Flycast                | 🟢               | Flycast                  | ⚪       |                                                |
 |                        |                 | redream                  | 🔵       |
 |                        |                 |                          |         |
 | ***FBNEO***            |                 |                          |         |
 | FinalBurn Neo          | 🟢               | FinalBurn Neo            | 🔴       | Doesn't accept custom configuration            |
 |                        |                 |                          |         |                                                |
+| ***GC***               |                 |                          |         |
+| Dolphin                | 🟢               | Dolphin                  | 🟢       |                                                |
+|                        |                 | PrimeHack                | 🔵       |
+|                        |                 | Triforce                 | 🔵       |
 | ***N3DS***             |                 |                          |         |
 | Citra                  | 🟢               | Citra                    | 🔴       |                                                |
 | Citra 2018             | 🟢               |                          |         |
@@ -137,7 +141,6 @@ Libretro cores are based on nightly builds.
 | Mesen-S                | 🟢               |                          |         |
 |                        |                 |                          |         |                                                |
 | ***WII***              |                 |                          |         |
-| Dolphin                | 🟢               | Dolphin                  | 🔵       |                                                |
+| Dolphin                | 🟢               | Dolphin                  | 🟢       |                                                |
 |                        |                 | PrimeHack                | 🔵       |
-|                        |                 | Triforce                 | 🔵       |
 |                        |                 |                          |         |                                                |

@@ -27,9 +27,14 @@
     </core>
     <!--
         ################################################################
-        ##### Facades for various emulators without libretro core. #####
+        ##### Facades for various standalone emulators. #####
         ################################################################
     -->
+    <emulator name="FACADE_DOLPHIN_SETUP">
+        <rule type="staticpath">
+            <entry>~/facades/dolphin/start-setup.sh</entry>
+        </rule>
+    </emulator>
     <emulator name="FACADE_DUCKSTATION_SETUP">
         <rule type="staticpath">
             <entry>~/facades/duckstation/start-setup.sh</entry>
@@ -147,26 +152,12 @@
             <entry>~/.local/share/flatpak/exports/bin/org.desmume.DeSmuME</entry>
         </rule>
     </emulator> -->
-    <!--
-        ##############################
-        ##### Use libretro core. #####
-        ##############################
-    -->
-    <!-- <emulator name="DOLPHIN"> -->
+    <emulator name="DOLPHIN">
         <!-- Nintendo GameCube and Wii emulator Dolphin -->
-        <!-- <rule type="systempath">
-            <entry>dolphin-emu</entry>
-            <entry>org.DolphinEmu.dolphin-emu</entry>
-        </rule>
         <rule type="staticpath">
-            <entry>~/Applications/Dolphin_Emulator*.AppImage</entry>
-            <entry>~/.local/share/applications/Dolphin_Emulator*.AppImage</entry>
-            <entry>~/.local/bin/Dolphin_Emulator*.AppImage</entry>
-            <entry>~/bin/Dolphin_Emulator*.AppImage</entry>
-            <entry>/var/lib/flatpak/exports/bin/org.DolphinEmu.dolphin-emu</entry>
-            <entry>~/.local/share/flatpak/exports/bin/org.DolphinEmu.dolphin-emu</entry>
+            <entry>~/binaries/dolphin-emu.AppImage</entry>
         </rule>
-    </emulator> -->
+    </emulator>
     <emulator name="DOSBOX-STAGING">
         <!-- DOS emulator DOSBox Staging -->
         <rule type="staticpath">
