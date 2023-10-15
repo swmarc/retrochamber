@@ -97,7 +97,8 @@ Libretro cores are based on nightly builds.
 | FinalBurn Neo          | 🟢               | FinalBurn Neo            | 🔴       | Doesn't accept custom configuration            |
 |                        |                 |                          |         |                                                |
 | ***GC***               |                 |                          |         |
-| Dolphin                | 🟢               | Dolphin                  | 🟢       |                                                |
+| Dolphin                | 🟢               | Dolphin - Setup Mode     | 🟢       |                                                |
+|                        |                 | Dolphin - Play Mode      | 🟢       |                                                |
 |                        |                 | PrimeHack                | 🔵       |
 |                        |                 | Triforce                 | 🔵       |
 | ***N3DS***             |                 |                          |         |
@@ -141,6 +142,7 @@ Libretro cores are based on nightly builds.
 | Mesen-S                | 🟢               |                          |         |
 |                        |                 |                          |         |                                                |
 | ***WII***              |                 |                          |         |
-| Dolphin                | 🟢               | Dolphin                  | 🟢       |                                                |
+| Dolphin                | 🟢               | Dolphin - Setup Mode     | 🟢       |                                                |
+|                        |                 | Dolphin - Play Mode      | 🟢       |                                                |
 |                        |                 | PrimeHack                | 🔵       |
 |                        |                 |                          |         |                                                |
