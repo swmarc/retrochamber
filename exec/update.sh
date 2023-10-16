@@ -473,7 +473,7 @@ update_bios () {
 
   retrochamber.lib.print.success "${SCRIPT_UPDATE}" "Mounting zip file."
   mkdir -p "${CWD}/.tmp"
-  fuse-archive "${CWD}/${TARGET_FILENAME}.zip" "${CWD}/.tmp"
+  "${CWD}../binaries/fuse-archive" "${CWD}/${TARGET_FILENAME}.zip" "${CWD}/.tmp"
 
   retrochamber.lib.print.success "${SCRIPT_UPDATE}" "Copying 'system'."
   RSYNC_FILES=$(find "${CWD}/.tmp/"*"/BIOS/" | wc -l)
