@@ -7,10 +7,15 @@ CWD="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 # exec > >(tee "${CWD}/logs/${SCRIPT}.log") 2>&1
 
 source "${CWD}/../lib/banner.sh"
+source "${CWD}/../lib/dependency/ubuntu.sh"
 source "${CWD}/../lib/print.sh"
 
 reset
 retrochamber.lib.banner.print
+
+if [[ " $(cat /proc/version) " =~ " Ubuntu " ]]; then
+  retrochamber.lib.depedency.ubuntu.check_install
+fi
 
 if [ ! -f "${CWD}/SETUP" ]; then
   retrochamber.lib.print.success "RetroChamber" "Initializing first run."

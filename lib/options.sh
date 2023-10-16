@@ -33,7 +33,7 @@ retrochamber.lib.options.indexExists () {
   local INDEX=${1}
 
   if [ "${OPTIONS[INDEX]+exists}" ]; then
-    echo "[${PARSE_OPTIONS}] [---] <$(date -u --rfc-3339=seconds)> Index '${INDEX}' does not exist."
+    retrochamber.lib.print.fail "${PARSE_OPTIONS}" "Index '${INDEX}' does not exist."
     exit 1
   fi
 }
