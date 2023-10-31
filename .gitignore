@@ -10,3 +10,4 @@ logs/*.log
 roms/
 tmp/archive/
 SETUP
+tree.html

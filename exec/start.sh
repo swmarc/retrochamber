@@ -19,7 +19,7 @@ fi
 
 if [ ! -f "${CWD}/SETUP" ]; then
   retrochamber.lib.print.success "RetroChamber" "Initializing first run."
-  retrochamber.lib.print.success "RetroChamber" "This will take a short while."
+  retrochamber.lib.print.success "RetroChamber" "This might take a while."
 
   bash "${CWD}/update.sh"
   echo 0 > "${CWD}/SETUP"
@@ -31,4 +31,5 @@ retrochamber.lib.print.success "RetroChamber" "Starting RetroChamber"
 sleep 1
 
 "${CWD}/../binaries/emulationstation-de.AppImage" \
-  --home "${CWD}/../"
+  --home "${CWD}/../" \
+  --debug
