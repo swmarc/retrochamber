@@ -1477,10 +1477,9 @@
         <name>scummvm</name>
         <fullname>ScummVM Game Engine</fullname>
         <path>%ROMPATH%/scummvm</path>
-        <extension>.scummvm .SCUMMVM .svm .SVM</extension>
-        <command label="ScummVM">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/scummvm_libretro.so" -rom "%ROM%"</command>
-        <!-- <command label="ScummVM (Standalone)">%STARTDIR%=%GAMEDIR% %EMULATOR_SCUMMVM% %BASENAME%</command> -->
-        <command label="ScummVM (Standalone)">"%EMULATOR_FACADE_SCUMMVM%" -gamepath "%GAMEDIR%"</command>
+        <extension>.scummvm .SCUMMVM .svm .SVM .zip .ZIP</extension>
+        <command label="ScummVM">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/scummvm_libretro.so" -zip-mount 1 -mount-as-directory 1 -rom "%ROM%"</command>
+        <command label="ScummVM (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/scummvm/start.sh" -zip-mount 1 -mount-as-directory 1 -rom "%ROM%"</command>
         <platform>scummvm</platform>
         <theme>scummvm</theme>
     </system>

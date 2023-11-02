@@ -12,7 +12,7 @@ source "${CWD_SCUMMVM}/../../lib/print.sh"
 
 declare -a OPTIONS_REQUIRED
 OPTIONS_REQUIRED=(
-  -gamepath
+  -rom
 )
 
 OPTIONS_DIFF=$(
@@ -26,8 +26,8 @@ if [ -n "${OPTIONS_DIFF[*]}" ]; then
   exit 1
 fi
 
-GAME_PATH=$(retrochamber.lib.paths.unescape "$(retrochamber.lib.options.get "-gamepath")")
-retrochamber.lib.options.remove "-gamepath"
+GAME_PATH=$(retrochamber.lib.paths.unescape "$(retrochamber.lib.options.get "-rom")")
+retrochamber.lib.options.remove "-rom"
 
 COMMAND=("${CWD_SCUMMVM}/../../binaries/scummvm.AppImage")
 for OPTION_KEY in "${!OPTIONS[@]}"; do
