@@ -32,16 +32,20 @@ retrochamber.lib.print.debug "${PARSE_OPTIONS}" "Option values: ${OPTIONS[*]}"
 retrochamber.lib.options.indexExists () {
   local INDEX=${1}
 
-  if [ "${OPTIONS[INDEX]+exists}" ]; then
-    retrochamber.lib.print.fail "${PARSE_OPTIONS}" "Index '${INDEX}' does not exist."
-    exit 1
+  if [ -v 'OPTIONS[$INDEX]' ]; then
+    echo 1 && return
   fi
+
+  echo 0 && return
 }
 
 retrochamber.lib.options.get () {
   local INDEX=${1}
 
-  retrochamber.lib.options.indexExists "${INDEX}"
+  if [[ $(retrochamber.lib.options.indexExists "${INDEX}") -eq 0 ]]; then
+    return
+  fi
+
   echo "${OPTIONS[${INDEX}]}"
 }
 
@@ -49,13 +53,15 @@ retrochamber.lib.options.set () {
   local INDEX=${1}
   local VALUE=${2:-}
 
-  retrochamber.lib.options.indexExists "${INDEX}"
   OPTIONS[${INDEX}]="${VALUE}"
 }
 
 retrochamber.lib.options.remove () {
   local INDEX=${1}
 
-  retrochamber.lib.options.indexExists "${INDEX}"
+  if [[ $(retrochamber.lib.options.indexExists "${INDEX}") -eq 0 ]]; then
+    return
+  fi
+
   unset "OPTIONS[${INDEX}]"
 }

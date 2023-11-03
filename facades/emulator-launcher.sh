@@ -25,7 +25,7 @@ retrochamber.lib.print.debug "${SCRIPT_LAUNCHER}" "Mount ZIP: ${OPTION_ZIP_MOUNT
 OPTION_ROM_PATH=$(retrochamber.lib.options.get "-rom")
 retrochamber.lib.print.debug "${SCRIPT_LAUNCHER}" "ROM path: ${OPTION_ROM_PATH}"
 
-OPTION_MOUNT_AS_DIRECTORY=$(retrochamber.lib.options.get "-mount-as-directory" || true)
+OPTION_MOUNT_AS_DIRECTORY=$(retrochamber.lib.options.get "-mount-as-directory")
 retrochamber.lib.print.debug "${SCRIPT_LAUNCHER}" "Mount as directory: ${OPTION_MOUNT_AS_DIRECTORY}"
 
 retrochamber.lib.options.remove "-emulator"
@@ -55,7 +55,7 @@ trap unmount_zip SIGINT
 
 # shellcheck disable=2076
 # shellcheck disable=2199
-if [ "${OPTION_ZIP_MOUNT}" -eq 1 ] && [[ " ${ZIP_EXTENSIONS[@]} " =~ " ${FILE_EXTENSION} " ]]; then
+if [[ ${OPTION_ZIP_MOUNT} -eq 1 ]] && [[ " ${ZIP_EXTENSIONS[@]} " =~ " ${FILE_EXTENSION} " ]]; then
   unmount_zip
 
   retrochamber.lib.print.info "${SCRIPT_LAUNCHER}" "Mounting '${ROM_NAME}' from remote. This can take a while."
