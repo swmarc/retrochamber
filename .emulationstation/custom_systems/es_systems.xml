@@ -54,8 +54,8 @@
         <fullname>Commodore Amiga CD32</fullname>
         <path>%ROMPATH%/amigacd32</path>
         <extension>.adf .ADF .adz .ADZ .ccd .CCD .chd .CHD .cue .CUE .dms .DMS .fdi .FDI .hdf .HDF .hdz .HDZ .ipf .IPF .rp9 .RP9 .iso .ISO .lha .LHA .m3u .M3U .mds .MDS .nrg .NRG .uae .UAE .7z .7Z .zip .ZIP</extension>
-        <command label="PUAE">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/puae_libretro.so" -rom "%ROM%"</command>
-        <command label="PUAE 2021">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/puae2021_libretro.so" -rom "%ROM%"</command>
+        <command label="PUAE">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/puae_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="PUAE 2021">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/puae2021_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <platform>amigacd32</platform>
         <theme>amigacd32</theme>
     </system>
@@ -248,7 +248,7 @@
         <fullname>Sammy Corporation Atomiswave</fullname>
         <path>%ROMPATH%/atomiswave</path>
         <extension>.bin .BIN .cdi .CDI .cue .CUE .dat .DAT .elf .ELF .gdi .GDI .iso .ISO .lst .LST .m3u .M3U .7z .7Z .zip .ZIP</extension>
-        <command label="Flycast">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/flycast_libretro.so" -rom "%ROM%"</command>
+        <command label="Flycast">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/flycast_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Flycast (Standalone)">%EMULATOR_FLYCAST% -rom "%ROM%"</command>
         <platform>arcade</platform>
         <theme>atomiswave</theme>
@@ -301,8 +301,8 @@
         <fullname>Commodore CDTV</fullname>
         <path>%ROMPATH%/cdtv</path>
         <extension>.ccd .CCD .chd .CHD .cue .CUE .iso .ISO .m3u .M3U .mds .MDS .nrg .NRG .rp9 .RP9 .7z .7Z .zip .ZIP</extension>
-        <command label="PUAE">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/puae_libretro.so" -rom "%ROM%"</command>
-        <command label="PUAE 2021">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/puae2021_libretro.so" -rom "%ROM%"</command>
+        <command label="PUAE">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/puae_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="PUAE 2021">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/puae2021_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <platform>cdtv</platform>
         <theme>cdtv</theme>
     </system>
@@ -465,9 +465,9 @@
         <fullname>DOS (PC)</fullname>
         <path>%ROMPATH%/dos</path>
         <extension>.bat .BAT .com .COM .conf .CONF .cue .CUE .dosz .DOSZ .exe .EXE .iso .ISO .7z .7Z .zip .ZIP</extension>
-        <command label="DOSBox-Pure">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dosbox_pure_libretro.so" -rom "%ROM%"</command>
-        <command label="DOSBox-Core">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dosbox_core_libretro.so" -rom "%ROM%"</command>
-        <command label="DOSBox-SVN">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dosbox_svn_libretro.so" -rom "%ROM%"</command>
+        <command label="DOSBox-Pure">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dosbox_pure_libretro.so" -zip-mount 1 -mount-as-directory 1 -rom "%ROM%"</command>
+        <command label="DOSBox-Core">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dosbox_core_libretro.so" -zip-mount 1 -mount-as-directory 1 -rom "%ROM%"</command>
+        <command label="DOSBox-SVN">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dosbox_svn_libretro.so" -zip-mount 1 -mount-as-directory 1 -rom "%ROM%"</command>
         <command label="DOSBox-X (Standalone)">%STARTDIR%=%GAMEDIR% %EMULATOR_DOSBOX-X% -rom "%ROM%"</command>
         <command label="DOSBox Staging (Standalone)">%STARTDIR%=%GAMEDIR% %EMULATOR_DOSBOX-STAGING% -rom "%ROM%"</command>
         <platform>dos</platform>
@@ -882,9 +882,9 @@
         <fullname>Sega Mega-CD</fullname>
         <path>%ROMPATH%/megacd</path>
         <extension>.68k .68K .bin .BIN .bms .BMS .chd .CHD .cue .CUE .gen .GEN .gg .GG .iso .ISO .m3u .M3U .md .MD .mdx .MDX .sg .SG .sgd .SGD .smd .SMD .sms .SMS .7z .7Z .zip .ZIP</extension>
-        <command label="Genesis Plus GX">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/genesis_plus_gx_libretro.so" -rom "%ROM%"</command>
-        <command label="Genesis Plus GX Wide">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/genesis_plus_gx_wide_libretro.so" -rom "%ROM%"</command>
-        <command label="PicoDrive">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/picodrive_libretro.so" -rom "%ROM%"</command>
+        <command label="Genesis Plus GX">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/genesis_plus_gx_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Genesis Plus GX Wide">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/genesis_plus_gx_wide_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="PicoDrive">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/picodrive_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="ares (Standalone)">%EMULATOR_ARES% --fullscreen --system "Mega CD" -rom "%ROM%"</command>
         <platform>segacd</platform>
         <theme>megacd</theme>
@@ -894,9 +894,9 @@
         <fullname>Sega Mega-CD</fullname>
         <path>%ROMPATH%/megacdjp</path>
         <extension>.68k .68K .bin .BIN .bms .BMS .chd .CHD .cue .CUE .gen .GEN .gg .GG .iso .ISO .m3u .M3U .md .MD .mdx .MDX .sg .SG .sgd .SGD .smd .SMD .sms .SMS .7z .7Z .zip .ZIP</extension>
-        <command label="Genesis Plus GX">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/genesis_plus_gx_libretro.so" -rom "%ROM%"</command>
-        <command label="Genesis Plus GX Wide">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/genesis_plus_gx_wide_libretro.so" -rom "%ROM%"</command>
-        <command label="PicoDrive">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/picodrive_libretro.so" -rom "%ROM%"</command>
+        <command label="Genesis Plus GX">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/genesis_plus_gx_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Genesis Plus GX Wide">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/genesis_plus_gx_wide_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="PicoDrive">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/picodrive_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="ares (Standalone)">%EMULATOR_ARES% --fullscreen --system "Mega CD" -rom "%ROM%"</command>
         <platform>segacd</platform>
         <theme>megacdjp</theme>
@@ -1097,7 +1097,7 @@
         <fullname>Sega NAOMI</fullname>
         <path>%ROMPATH%/naomi</path>
         <extension>.cdi .CDI .iso .ISO .elf .ELF .bin .BIN .cue .CUE .gdi .GDI .lst .LST .dat .DAT .m3u .M3U .7z .7Z .zip .ZIP</extension>
-        <command label="Flycast">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/flycast_libretro.so" -rom "%ROM%"</command>
+        <command label="Flycast">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/flycast_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Flycast (Standalone)">%EMULATOR_FLYCAST% -rom "%ROM%"</command>
         <platform>arcade</platform>
         <theme>naomi</theme>
@@ -1107,7 +1107,7 @@
         <fullname>Sega NAOMI GD-ROM</fullname>
         <path>%ROMPATH%/naomigd</path>
         <extension>.cdi .CDI .iso .ISO .elf .ELF .bin .BIN .cue .CUE .gdi .GDI .lst .LST .dat .DAT .m3u .M3U .7z .7Z .zip .ZIP</extension>
-        <command label="Flycast">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/flycast_libretro.so" -rom "%ROM%"</command>
+        <command label="Flycast">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/flycast_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Flycast (Standalone)">%EMULATOR_FLYCAST% -rom "%ROM%"</command>
         <platform>arcade</platform>
         <theme>naomigd</theme>
@@ -1153,10 +1153,10 @@
         <fullname>SNK Neo Geo CD</fullname>
         <path>%ROMPATH%/neogeocdjp</path>
         <extension>.chd .CHD .cue .CUE</extension>
-        <command label="NeoCD">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/neocd_libretro.so" -rom "%ROM%"</command>
-        <command label="FinalBurn Neo">%EMULATOR_RETROARCH% --subsystem neocd" -core "%CORE_RETROARCH%/fbneo_libretro.so" -rom "%ROM%"</command>
+        <command label="NeoCD">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/neocd_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="FinalBurn Neo">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" --subsystem neocd -core "%CORE_RETROARCH%/fbneo_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="FinalBurn Neo (Standalone)">%EMULATOR_FINALBURN-NEO% neocdz -fullscreen -cd -rom "%ROM%"</command>
-        <command label="MAME (Standalone)">%STARTDIR%=~/.mame %EMULATOR_MAME% -rompath %GAMEDIR%\;%ROMPATH%/neogeocdjp neocdz -cdrm -rom "%ROM%"</command>
+        <command label="MAME (Standalone)">%STARTDIR%=~/.mame %EMULATOR_MAME% -rompath %GAMEDIR%\;%ROMPATH%/neogeocd neocdz -cdrm -rom "%ROM%"</command>
         <platform>neogeocd</platform>
         <theme>neogeocdjp</theme>
     </system>
@@ -1242,9 +1242,9 @@
         <fullname>IBM PC</fullname>
         <path>%ROMPATH%/pc</path>
         <extension>.bat .BAT .com .COM .conf .CONF .cue .CUE .dosz .DOSZ .exe .EXE .iso .ISO .7z .7Z .zip .ZIP</extension>
-        <command label="DOSBox-Pure">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dosbox_pure_libretro.so" -rom "%ROM%"</command>
-        <command label="DOSBox-Core">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dosbox_core_libretro.so" -rom "%ROM%"</command>
-        <command label="DOSBox-SVN">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dosbox_svn_libretro.so" -rom "%ROM%"</command>
+        <command label="DOSBox-Pure">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dosbox_pure_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="DOSBox-Core">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dosbox_core_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="DOSBox-SVN">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dosbox_svn_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="DOSBox-X (Standalone)">%STARTDIR%=%GAMEDIR% %EMULATOR_DOSBOX-X% -rom "%ROM%"</command>
         <command label="DOSBox Staging (Standalone)">%STARTDIR%=%GAMEDIR% %EMULATOR_DOSBOX-STAGING% -rom "%ROM%"</command>
         <platform>pc</platform>
@@ -1286,8 +1286,8 @@
         <fullname>NEC PC Engine CD</fullname>
         <path>%ROMPATH%/pcenginecd</path>
         <extension>.ccd .CCD .chd .CHD .cue .CUE .img .IMG .iso .ISO .m3u .M3U .pce .PCE .sgx .SGX .toc .TOC .7z .7Z .zip .ZIP</extension>
-        <command label="Beetle PCE">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/mednafen_pce_libretro.so" -rom "%ROM%"</command>
-        <command label="Beetle PCE FAST">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/mednafen_pce_fast_libretro.so" -rom "%ROM%"</command>
+        <command label="Beetle PCE">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mednafen_pce_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Beetle PCE FAST">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mednafen_pce_fast_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Mednafen (Standalone)">%EMULATOR_MEDNAFEN% -force_module pce -rom "%ROM%"</command>
         <command label="ares (Standalone)">%EMULATOR_ARES% --fullscreen --system "PC Engine CD" -rom "%ROM%"</command>
         <platform>pcenginecd</platform>
@@ -1298,7 +1298,7 @@
         <fullname>NEC PC-FX</fullname>
         <path>%ROMPATH%/pcfx</path>
         <extension>.ccd .CCD .chd .CHD .cue CUE .m3u .M3U .toc .TOC .7z .7Z .zip .ZIP</extension>
-        <command label="Beetle PC-FX">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/mednafen_pcfx_libretro.so" -rom "%ROM%"</command>
+        <command label="Beetle PC-FX">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mednafen_pcfx_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Mednafen (Standalone)">%EMULATOR_MEDNAFEN% -force_module pcfx -rom "%ROM%"</command>
         <platform>pcfx</platform>
         <theme>pcfx</theme>
@@ -1369,7 +1369,7 @@
         <fullname>Sony PlayStation Portable</fullname>
         <path>%ROMPATH%/psp</path>
         <extension>.elf .ELF .iso .ISO .cso .CSO .prx .PRX .pbp .PBP .7z .7Z .zip .ZIP</extension>
-        <command label="PPSSPP">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/ppsspp_libretro.so" -rom "%ROM%"</command>
+        <command label="PPSSPP">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/ppsspp_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="PPSSPP (Standalone)">%EMULATOR_PPSSPP% -rom "%ROM%"</command>
         <platform>psp</platform>
         <theme>psp</theme>
@@ -1527,8 +1527,8 @@
         <fullname>Sega CD</fullname>
         <path>%ROMPATH%/segacd</path>
         <extension>.68k .68K .bin .BIN .bms .BMS .chd .CHD .cue .CUE .gen .GEN .gg .GG .iso .ISO .m3u .M3U .md .MD .mdx .MDX .sg .SG .sgd .SGD .smd .SMD .sms .SMS .7z .7Z .zip .ZIP</extension>
-        <command label="Genesis Plus GX">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/genesis_plus_gx_libretro.so" -rom "%ROM%"</command>
-        <command label="Genesis Plus GX Wide">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/genesis_plus_gx_wide_libretro.so" -rom "%ROM%"</command>
+        <command label="Genesis Plus GX">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/genesis_plus_gx_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Genesis Plus GX Wide">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/genesis_plus_gx_wide_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="PicoDrive">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/picodrive_libretro.so" -rom "%ROM%"</command>
         <command label="ares (Standalone)">%EMULATOR_ARES% --fullscreen --system "Mega CD" -rom "%ROM%"</command>
         <platform>segacd</platform>
@@ -1733,8 +1733,8 @@
         <fullname>NEC TurboGrafx-CD</fullname>
         <path>%ROMPATH%/tg-cd</path>
         <extension>.ccd .CCD .chd .CHD .cue .CUE .img .IMG .iso .ISO .m3u .M3U .pce .PCE .sgx .SGX .toc .TOC .7z .7Z .zip .ZIP</extension>
-        <command label="Beetle PCE">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/mednafen_pce_libretro.so" -rom "%ROM%"</command>
-        <command label="Beetle PCE FAST">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/mednafen_pce_fast_libretro.so" -rom "%ROM%"</command>
+        <command label="Beetle PCE">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mednafen_pce_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Beetle PCE FAST">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mednafen_pce_fast_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Mednafen (Standalone)">%EMULATOR_MEDNAFEN% -force_module pce -rom "%ROM%"</command>
         <command label="ares (Standalone)">%EMULATOR_ARES% --fullscreen --system "PC Engine CD" -rom "%ROM%"</command>
         <platform>pcenginecd</platform>
@@ -1857,7 +1857,7 @@
         <fullname>Nintendo Wii</fullname>
         <path>%ROMPATH%/wii</path>
         <extension>.ciso .CISO .dff .DFF .dol .DOL .elf .ELF .gcm .GCM .gcz .GCZ .iso .ISO .json .JSON .m3u .M3U .rvz .RVZ .tgc .TGC .wad .WAD .wbfs .WBFS .wia .WIA .7z .7Z .zip .ZIP</extension>
-        <command label="Dolphin">"%EMULATOR_RETROARCH%" -core "%CORE_RETROARCH%/dolphin_libretro.so" -rom "%ROM%"</command>
+        <command label="Dolphin">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/dolphin_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
         <command label="Dolphin - Setup Mode (Standalone)">"%EMULATOR_FACADE_DOLPHIN_SETUP%"</command>
         <command label="Dolphin - Play Mode (Standalone)">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/dolphin/start-play.sh" -zip-mount 1 -rom "%ROM%"</command>
         <!-- <command label="PrimeHack (Standalone)">%INJECT%=%BASENAME%.esprefix %EMULATOR_PRIMEHACK% -b -e -rom "%ROM%"</command> -->
