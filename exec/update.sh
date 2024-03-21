@@ -4,6 +4,7 @@ set -eu
 
 CWD="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 SCRIPT_UPDATE=$(basename "${BASH_SOURCE[0]}" .sh)
+DEBUG=${1:-0}
 GITHUB_TOKEN=""
 TARGET_APPIMAGE_PATH="$(realpath "${CWD}/../binaries")"
 
@@ -13,6 +14,14 @@ source "${CWD}/../lib/print.sh"
 if [ -f "${CWD}/GITHUB_TOKEN" ]; then
   GITHUB_TOKEN=$(cat "${CWD}/GITHUB_TOKEN")
 fi
+
+retrochamber.exec.update.debug () {
+  local MESSAGE=${1:-""}
+
+  if [ $DEBUG -eq 1 ]; then
+    retrochamber.lib.print.debug "${SCRIPT_UPDATE}" "${MESSAGE}"
+  fi
+}
 
 update_retroarch () {
   local ARCHIVE_FILENAME="" DOWNLOAD_URL="" RETROARCH_CONFIGS=()
@@ -150,13 +159,14 @@ update_gitlab () {
   local TARGET_FILENAME="" VERSION_FILE="" URL=""
 
   PROJECTS=(
-    ["es-de/emulationstation-de"]="EmulationStation-DE-x64.AppImage"
+    ["es-de/emulationstation-de"]="ES-DE_x64.AppImage"
   )
   URL="https://gitlab.com/api/v4/projects"
   URL_RELEASE="releases"
 
   for PROJECT in "${!PROJECTS[@]}"; do
     PROJECT_FILENAME="${PROJECTS[$PROJECT]}"
+    retrochamber.exec.update.debug "DEBUG: (${FUNCNAME[0]}) Processing '${PROJECT}'."
 
     PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
     API_RESPONSE=$(curl --silent "${URL}/$(echo "${PROJECT}" | sed -e 's/\//%2F/g')/${URL_RELEASE}")
@@ -241,13 +251,14 @@ update_github () {
     ["swmarc/emulation-appimages>xroar"]="xroar-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>zesarux"]="zesarux-.*-x86_64.AppImage"
     ["xemu-project/xemu"]="xemu-v[0-9.]*-x86_64.AppImage"
-    ["yuzu-emu/yuzu-mainline>yuzu"]="yuzu-mainline-.*.AppImage"
+    # ["jarrodnorwell/yuzu>yuzu"]="yuzu-mainline-.*.AppImage"
   )
   URL="https://api.github.com/repos"
   URL_RELEASE="releases"
 
   for PROJECT in "${!PROJECTS[@]}"; do
     PROJECT_FILENAME="${PROJECTS[$PROJECT]}"
+    retrochamber.exec.update.debug "DEBUG: (${FUNCNAME[0]}) Processing '${PROJECT}'."
 
     PROJECT_REDIRECT_PRINT=""
     TARGET_FILENAME=$(echo "${PROJECT}" | cut -d'/' -f2)
@@ -258,7 +269,7 @@ update_github () {
     fi
 
     PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
-    API_RESPONSE=$(curl -u "$GITHUB_TOKEN:x-oauth-basic" --silent "${URL}/${PROJECT}/${URL_RELEASE}")
+    API_RESPONSE=$(curl -u "$GITHUB_TOKEN:x-oauth-basic" --silent "${URL}/${PROJECT}/${URL_RELEASE}?per_page=100")
     VERSION_FILE="${TARGET_APPIMAGE_PATH}/VERSION.${TARGET_FILENAME}"
     TAG_NAME=$(echo "${API_RESPONSE}" | jq -r "[.[].assets[] | select(.name | match(\"^${PROJECT_FILENAME}$\"))][0] | .created_at")
     DOWNLOAD_URL=$(echo "${API_RESPONSE}" | jq -r "[.[].assets[] | select(.name | match(\"^${PROJECT_FILENAME}$\"))][0] | .browser_download_url")
@@ -295,13 +306,14 @@ update_github_from_tarball () {
   local VERSION_FILE="" URL=""
 
   PROJECTS=(
-    ["dirtbagxon/hypseus-singe"]="hypseus-singe_.*_SteamOS_ES-DE.tar.gz"
+    ["dirtbagxon/hypseus-singe"]="hypseus-singe_.*_SteamOS_ES-DE_updated.tar.gz"
   )
   URL="https://api.github.com/repos"
   URL_RELEASE="releases"
 
   for PROJECT in "${!PROJECTS[@]}"; do
     PROJECT_FILENAME="${PROJECTS[$PROJECT]}"
+    retrochamber.exec.update.debug "DEBUG: (${FUNCNAME[0]}) Processing '${PROJECT}'."
 
     PROJECT_REDIRECT_PRINT=""
     TARGET_FILENAME=$(echo "${PROJECT}" | cut -d'/' -f2)
@@ -355,7 +367,7 @@ update_github_citra () {
   local PROJECT="" PROJECT_PRINT="" SOURCE_FILENAME="" TARGET_FILENAME=""
   local VERSION_FILE="" URL=""
 
-  PROJECT="citra-emu/citra-nightly"
+  PROJECT="jarrodnorwell/citra"
   PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
   URL="https://api.github.com/repos"
   URL_RELEASE="releases"
@@ -535,7 +547,7 @@ update_retroarch
 update_libretro
 update_gitlab
 update_github
-update_github_citra
+# update_github_citra
 update_github_from_tarball
 update_play_stable
 update_bios
