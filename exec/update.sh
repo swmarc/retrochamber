@@ -4,14 +4,24 @@ set -eu
 
 CWD="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 SCRIPT_UPDATE=$(basename "${BASH_SOURCE[0]}" .sh)
+DEBUG=${1:-0}
 GITHUB_TOKEN=""
 TARGET_APPIMAGE_PATH="$(realpath "${CWD}/../binaries")"
 
+source "${CWD}/../lib/access.sh"
 source "${CWD}/../lib/print.sh"
 
 if [ -f "${CWD}/GITHUB_TOKEN" ]; then
   GITHUB_TOKEN=$(cat "${CWD}/GITHUB_TOKEN")
 fi
+
+retrochamber.exec.update.debug () {
+  local MESSAGE=${1:-""}
+
+  if [ $DEBUG -eq 1 ]; then
+    retrochamber.lib.print.debug "${SCRIPT_UPDATE}" "${MESSAGE}"
+  fi
+}
 
 update_retroarch () {
   local ARCHIVE_FILENAME="" DOWNLOAD_URL="" RETROARCH_CONFIGS=()
@@ -149,13 +159,14 @@ update_gitlab () {
   local TARGET_FILENAME="" VERSION_FILE="" URL=""
 
   PROJECTS=(
-    ["es-de/emulationstation-de"]="EmulationStation-DE-x64.AppImage"
+    ["es-de/emulationstation-de"]="ES-DE_x64.AppImage"
   )
   URL="https://gitlab.com/api/v4/projects"
   URL_RELEASE="releases"
 
   for PROJECT in "${!PROJECTS[@]}"; do
     PROJECT_FILENAME="${PROJECTS[$PROJECT]}"
+    retrochamber.exec.update.debug "DEBUG: (${FUNCNAME[0]}) Processing '${PROJECT}'."
 
     PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
     API_RESPONSE=$(curl --silent "${URL}/$(echo "${PROJECT}" | sed -e 's/\//%2F/g')/${URL_RELEASE}")
@@ -214,6 +225,7 @@ update_github () {
     ["swmarc/emulation-appimages>atari800"]="atari800-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>blastem"]="blastem-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>cpcemu"]="cpcemu-.*-x86_64.AppImage"
+    ["swmarc/emulation-appimages>dolphin-emu"]="dolphin-emu-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>dosbox-staging"]="dosbox-staging-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>dosbox-x"]="dosbox-x-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>easyrpg-player"]="easyrpg-player-.*-x86_64.AppImage"
@@ -230,6 +242,7 @@ update_github () {
     ["swmarc/emulation-appimages>nestopia"]="nestopia-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>openmsx"]="openmsx-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>pico8"]="pico8-.*-x86_64.AppImage"
+    ["swmarc/emulation-appimages>punes"]="punes-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>scummvm"]="scummvm-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>simcoupe"]="simcoupe-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>stella"]="stella-.*-x86_64.AppImage"
@@ -238,13 +251,14 @@ update_github () {
     ["swmarc/emulation-appimages>xroar"]="xroar-.*-x86_64.AppImage"
     ["swmarc/emulation-appimages>zesarux"]="zesarux-.*-x86_64.AppImage"
     ["xemu-project/xemu"]="xemu-v[0-9.]*-x86_64.AppImage"
-    ["yuzu-emu/yuzu-mainline>yuzu"]="yuzu-mainline-.*.AppImage"
+    # ["jarrodnorwell/yuzu>yuzu"]="yuzu-mainline-.*.AppImage"
   )
   URL="https://api.github.com/repos"
   URL_RELEASE="releases"
 
   for PROJECT in "${!PROJECTS[@]}"; do
     PROJECT_FILENAME="${PROJECTS[$PROJECT]}"
+    retrochamber.exec.update.debug "DEBUG: (${FUNCNAME[0]}) Processing '${PROJECT}'."
 
     PROJECT_REDIRECT_PRINT=""
     TARGET_FILENAME=$(echo "${PROJECT}" | cut -d'/' -f2)
@@ -255,7 +269,7 @@ update_github () {
     fi
 
     PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
-    API_RESPONSE=$(curl -u "$GITHUB_TOKEN:x-oauth-basic" --silent "${URL}/${PROJECT}/${URL_RELEASE}")
+    API_RESPONSE=$(curl -u "$GITHUB_TOKEN:x-oauth-basic" --silent "${URL}/${PROJECT}/${URL_RELEASE}?per_page=100")
     VERSION_FILE="${TARGET_APPIMAGE_PATH}/VERSION.${TARGET_FILENAME}"
     TAG_NAME=$(echo "${API_RESPONSE}" | jq -r "[.[].assets[] | select(.name | match(\"^${PROJECT_FILENAME}$\"))][0] | .created_at")
     DOWNLOAD_URL=$(echo "${API_RESPONSE}" | jq -r "[.[].assets[] | select(.name | match(\"^${PROJECT_FILENAME}$\"))][0] | .browser_download_url")
@@ -292,13 +306,14 @@ update_github_from_tarball () {
   local VERSION_FILE="" URL=""
 
   PROJECTS=(
-    ["dirtbagxon/hypseus-singe"]="hypseus-singe_.*_SteamOS_ES-DE.tar.gz"
+    ["dirtbagxon/hypseus-singe"]="hypseus-singe_.*_SteamOS_ES-DE_updated.tar.gz"
   )
   URL="https://api.github.com/repos"
   URL_RELEASE="releases"
 
   for PROJECT in "${!PROJECTS[@]}"; do
     PROJECT_FILENAME="${PROJECTS[$PROJECT]}"
+    retrochamber.exec.update.debug "DEBUG: (${FUNCNAME[0]}) Processing '${PROJECT}'."
 
     PROJECT_REDIRECT_PRINT=""
     TARGET_FILENAME=$(echo "${PROJECT}" | cut -d'/' -f2)
@@ -352,7 +367,7 @@ update_github_citra () {
   local PROJECT="" PROJECT_PRINT="" SOURCE_FILENAME="" TARGET_FILENAME=""
   local VERSION_FILE="" URL=""
 
-  PROJECT="citra-emu/citra-nightly"
+  PROJECT="jarrodnorwell/citra"
   PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
   URL="https://api.github.com/repos"
   URL_RELEASE="releases"
@@ -479,9 +494,48 @@ update_bios () {
     "${CWD}/../.retroarch/system/" |\
     pv -ltaep -w 80 -s "${RSYNC_FILES}" \
     >/dev/null
+  retrochamber.lib.access.fix_permissions "${CWD}/../.retroarch/"
 
   fusermount -u "${CWD}/.tmp"
   rm -f "${CWD}/${TARGET_FILENAME}.zip"
+  rm -rf "${CWD:?}/.tmp"
+  echo "${TAG_NAME}" > "${VERSION_FILE}"
+
+  retrochamber.lib.print.success "${SCRIPT_UPDATE}" "Update done."
+  sleep 0.5
+}
+
+update_bios_capsimg () {
+  # Hard code, since it seems there won't be any newer version.
+  local DOWNLOAD_URL="https://fs-uae.net/files/CAPSImg/Stable/5.1.4/CAPSImg_5.1.4_Linux_x86-64.tar.xz"
+  local PROJECT="" PROJECT_FILE="" PROJECT_PRINT="" TAG_NAME="" VERSION_FILE=""
+
+  PROJECT="CAPSImg"
+  PROJECT_FILE="capsimg.so"
+  PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
+  VERSION_FILE="${TARGET_APPIMAGE_PATH}/VERSION.capsimg"
+  TAG_NAME=$(echo "${DOWNLOAD_URL}" | rev | cut -d/ -f2 | rev)
+
+  if [ ! -f "${VERSION_FILE}" ]; then
+    touch "${VERSION_FILE}"
+  fi
+
+  if [ "$(cat "${VERSION_FILE}")" == "${TAG_NAME}" ]; then
+    retrochamber.lib.print.info "${SCRIPT_UPDATE}" "No update for project '${PROJECT_PRINT}'."
+    return
+  fi
+
+  retrochamber.lib.print.success "${SCRIPT_UPDATE}" "Update available for project '${PROJECT}'. New version is '${TAG_NAME}'."
+  mkdir -p "${CWD}/.tmp"
+  (
+    cd "${CWD}/.tmp"
+    wget -q --show-progress -O- "${DOWNLOAD_URL}" | bsdtar -xf-
+    find "${CWD}/.tmp" \
+      -type f \
+      -name "${PROJECT_FILE}" \
+      -exec mv {} "${CWD}/../.retroarch/system/" \;
+  )
+  retrochamber.lib.access.fix_permissions "${CWD}/../.retroarch/"
   rm -rf "${CWD:?}/.tmp"
   echo "${TAG_NAME}" > "${VERSION_FILE}"
 
@@ -493,7 +547,8 @@ update_retroarch
 update_libretro
 update_gitlab
 update_github
-update_github_citra
+# update_github_citra
 update_github_from_tarball
 update_play_stable
 update_bios
+update_bios_capsimg

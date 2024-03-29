@@ -12,7 +12,7 @@ source "${CWD_SCUMMVM}/../../lib/print.sh"
 
 declare -a OPTIONS_REQUIRED
 OPTIONS_REQUIRED=(
-  -gamepath
+  -rom
 )
 
 OPTIONS_DIFF=$(
@@ -26,8 +26,8 @@ if [ -n "${OPTIONS_DIFF[*]}" ]; then
   exit 1
 fi
 
-GAME_PATH=$(retrochamber.lib.paths.unescape "$(retrochamber.lib.options.get "-gamepath")")
-retrochamber.lib.options.remove "-gamepath"
+GAME_PATH=$(retrochamber.lib.paths.unescape "$(retrochamber.lib.options.get "-rom")")
+retrochamber.lib.options.remove "-rom"
 
 COMMAND=("${CWD_SCUMMVM}/../../binaries/scummvm.AppImage")
 for OPTION_KEY in "${!OPTIONS[@]}"; do
@@ -42,7 +42,7 @@ COMMAND+=(" --path=\"${GAME_PATH}\"")
 COMMAND+=(" --savepath=\"${CWD_SCUMMVM}/../../.config/scummvm/saves\"")
 COMMAND+=(' --auto-detect')
 
-retrochamber.lib.print.info "${SCRIPT_SCUMMVM}" "Starting ScummVM."
+retrochamber.lib.print.info "${SCRIPT_SCUMMVM}" "Starting ScummVM in playing mode."
 retrochamber.lib.print.debug "${SCRIPT_SCUMMVM}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
 eval "${COMMAND[@]}"

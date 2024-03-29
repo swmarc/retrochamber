@@ -11,7 +11,7 @@ source "${CWD_PS2}/../../lib/print.sh"
 
 COMMAND=("${CWD_PS2}/../../binaries/play.AppImage")
 
-retrochamber.lib.print.info "${SCRIPT_PS2}" "Starting Play! in playing mode."
+retrochamber.lib.print.info "${SCRIPT_PS2}" "Starting Play! in setup mode."
 retrochamber.lib.print.debug "${SCRIPT_PS2}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
 eval "${COMMAND[@]}"
