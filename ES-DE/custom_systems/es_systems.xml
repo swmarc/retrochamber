@@ -317,6 +317,15 @@
         <theme>c64</theme>
     </system>
     <system>
+        <name>cdda</name>
+        <fullname>Comact Disc Digital Audio</fullname>
+        <path>%ROMPATH%/cdda</path>
+        <extension>.bin .BIN .7z .7Z .zip .ZIP</extension>
+        <command label="FFmpeg">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/cdda/start.sh" -zip-mount 1 -rom "%ROM%"</command>
+        <platform>cdda</platform>
+        <theme>cdda</theme>
+    </system>
+    <system>
         <name>cdimono1</name>
         <fullname>Philips CD-i</fullname>
         <path>%ROMPATH%/cdimono1</path>
@@ -1551,7 +1560,7 @@
         <name>psvita</name>
         <fullname>Sony PlayStation Vita</fullname>
         <path>%ROMPATH%/psvita</path>
-        <extension>.psvita</extension>
+        <extension>.psvita .zip .ZIP</extension>
         <command label="Vita3K (Standalone)">%EMULATOR_VITA3K% -r %INJECT%=%BASENAME%.psvita</command>
         <platform>psvita</platform>
         <theme>psvita</theme>
