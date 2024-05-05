@@ -14,11 +14,13 @@ retrochamber.lib.depedency.ubuntu.check_install () {
     ["7z"]="p7zip"
     ["bsdtar"]="bsdtar"
     ["curl"]="curl"
+    ["ffmpeg"]="ffmpeg"
     ["jq"]="jq"
     ["pv"]="pv"
     ["rclone"]="rclone"
     ["rsync"]="rsync"
     ["sed"]="sed"
+    ["sox"]="sox"
     ["wget"]="wget"
   )
   local INSTALLATION="" LIST_MISSING="" MISSING="" TO_INSTALL=""
