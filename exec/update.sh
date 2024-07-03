@@ -27,7 +27,7 @@ update_retroarch () {
   local ARCHIVE_FILENAME="" DOWNLOAD_URL="" RETROARCH_CONFIGS=()
   local RETROARCH_CONFIGS_PATH="" RSYNC_FILES=0 SOURCE_FILEPATH=""
   local TARGET_FILENAME="" VERSION="" VERSION_FILE=""
-  local JSON_URL="https://buildbot.libretro.com/stable/altstore.json"
+  # local JSON_URL="https://buildbot.libretro.com/stable/altstore.json"
 
   PROJECT=$(retrochamber.lib.print.blue "RetroArch")
   ARCHIVE_FILENAME="RetroArch.7z"
@@ -43,7 +43,8 @@ update_retroarch () {
     shaders
   )
 
-  VERSION=$(wget -q -O- "${JSON_URL}" | jq -r ".apps[0].versions[0].version")
+  # VERSION=$(wget -q -O- "${JSON_URL}" | jq -r ".apps[0].versions[0].version")
+  VERSION=$(rclone lsd --http-url https://buildbot.libretro.com/stable/ :http: | rev | cut -d' ' -f1 | rev | sort -V | tail -n 1)
   VERSION_FILE="${TARGET_APPIMAGE_PATH}/VERSION.${TARGET_FILENAME}"
   DOWNLOAD_URL="https://buildbot.libretro.com/stable/${VERSION}/linux/x86_64/${ARCHIVE_FILENAME}"
 
@@ -95,7 +96,7 @@ update_libretro () {
   local ARCHIVE_FILENAME="" DOWNLOAD_URL="" RETROARCH_CONFIGS=()
   local RETROARCH_CONFIGS_PATH="" RSYNC_FILES=0 TARGET_FILENAME="" VERSION=""
   local VERSION_FILE=""
-  local JSON_URL="https://buildbot.libretro.com/stable/altstore.json"
+  # local JSON_URL="https://buildbot.libretro.com/stable/altstore.json"
 
   PROJECT=$(retrochamber.lib.print.blue "libretro")
   ARCHIVE_FILENAME="RetroArch_cores.7z"
@@ -105,7 +106,8 @@ update_libretro () {
     cores
   )
 
-  VERSION=$(wget -q -O- "${JSON_URL}" | jq -r ".apps[0].versions[0].version")
+  # VERSION=$(wget -q -O- "${JSON_URL}" | jq -r ".apps[0].versions[0].version")
+  VERSION=$(rclone lsd --http-url https://buildbot.libretro.com/stable/ :http: | rev | cut -d' ' -f1 | rev | sort -V | tail -n 1)
   VERSION_FILE="${TARGET_APPIMAGE_PATH}/VERSION.${TARGET_FILENAME}"
   DOWNLOAD_URL="https://buildbot.libretro.com/stable/${VERSION}/linux/x86_64/${ARCHIVE_FILENAME}"
 
