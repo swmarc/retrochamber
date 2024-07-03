@@ -32,4 +32,5 @@ sleep 1
 
 "${CWD}/../binaries/emulationstation-de.AppImage" \
   --home "${CWD}/../" \
+  --no-update-check \
   --debug
