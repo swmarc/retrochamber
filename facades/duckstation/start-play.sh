@@ -14,7 +14,6 @@ OPTIONS_REQUIRED=(
   -batch
   -bigpicture
   -fullscreen
-  -nogui
   -rom
 )
 
@@ -36,11 +35,14 @@ COMMAND=("${CWD_DUCKSTATION}/../../binaries/duckstation.AppImage")
 for OPTION_KEY in "${!OPTIONS[@]}"; do
   COMMAND+=("${OPTION_KEY}" "${OPTIONS[${OPTION_KEY}]}")
 done
-COMMAND+=(" -- ${ROM}")
+COMMAND+=(" -- \"${ROM}\"")
+
+HOME_CONFIG="${CWD_DUCKSTATION}/../../.config/duckstation"
+mkdir -p "${HOME_CONFIG}"
 
 retrochamber.lib.print.info "${SCRIPT_DUCKSTATION}" "Starting DuckStation in playing mode."
 retrochamber.lib.print.debug "${SCRIPT_DUCKSTATION}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
-eval "${COMMAND[@]}"
+HOME="${HOME_CONFIG}" eval "${COMMAND[@]}"
 
 retrochamber.lib.print.info "${SCRIPT_DUCKSTATION}" "DuckStation emulation has stopped."

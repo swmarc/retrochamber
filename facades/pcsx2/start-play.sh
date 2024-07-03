@@ -14,7 +14,6 @@ OPTIONS_REQUIRED=(
   -batch
   -bigpicture
   -fullscreen
-  -nogui
   -rom
 )
 
@@ -40,9 +39,12 @@ COMMAND+=(" -earlyconsolelog")
 COMMAND+=(" -logfile ${CWD_PS2}/pcsx2.log")
 COMMAND+=(" -- \"${ROM}\"")
 
+HOME_CONFIG="${CWD_PS2}/../../.config/pcsx2"
+mkdir -p "${HOME_CONFIG}"
+
 retrochamber.lib.print.info "${SCRIPT_PS2}" "Starting PCSX2 in playing mode."
 retrochamber.lib.print.debug "${SCRIPT_PS2}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
-eval "${COMMAND[@]}"
+HOME="${HOME_CONFIG}" eval "${COMMAND[@]}"
 
 retrochamber.lib.print.info "${SCRIPT_PS2}" "PCSX2 emulation has stopped."

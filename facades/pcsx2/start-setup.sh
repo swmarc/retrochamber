@@ -28,9 +28,12 @@ for OPTION_KEY in "${!OPTIONS[@]}"; do
   COMMAND+=("${OPTION_KEY}" "${OPTIONS[${OPTION_KEY}]}")
 done
 
+HOME_CONFIG="${CWD_PS2}/../../.config/pcsx2"
+mkdir -p "${HOME_CONFIG}"
+
 retrochamber.lib.print.info "${SCRIPT_PS2}" "Starting PCSX2 in setup mode."
 retrochamber.lib.print.debug "${SCRIPT_PS2}" "Command: ${COMMAND[*]}"
 # shellcheck disable=2294
-eval "${COMMAND[@]}"
+HOME="${HOME_CONFIG}" eval "${COMMAND[@]}"
 
 retrochamber.lib.print.info "${SCRIPT_PS2}" "PCSX2 emulation has stopped."
