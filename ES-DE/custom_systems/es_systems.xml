@@ -1807,6 +1807,20 @@
         <theme>snesna</theme>
     </system>
     <system>
+        <name>snes-msu</name>
+        <fullname>Nintendo SNES MSU-1 (Super Nintendo)</fullname>
+        <path>%ROMPATH%/snes-msu</path>
+        <extension>.msu .MSU .sfc .SFC .smc .SMC .7z .7Z .zip .ZIP</extension>
+        <command label="Snes9x - Current">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/snes9x_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="bsnes">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/bsnes_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="bsnes-hd">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/bsnes_hd_beta_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="bsnes-mercury Accuracy">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/bsnes_mercury_accuracy_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Beetle Supafaust">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mednafen_supafaust_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <command label="Mesen-S">"%EMULATOR_RETROARCH_MOUNT_FACADE%" -emulator "%EMUDIR%/start-retroarch.sh" -core "%CORE_RETROARCH%/mesen-s_libretro.so" -zip-mount 1 -rom "%ROM%"</command>
+        <platform>snes</platform>
+        <theme>snes</theme>
+    </system>
+    <system>
         <name>solarus</name>
         <fullname>Solarus Game Engine</fullname>
         <path>%ROMPATH%/solarus</path>
