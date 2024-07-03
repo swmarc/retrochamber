@@ -33,7 +33,7 @@ retrochamber.lib.options.remove "-zip-mount"
 retrochamber.lib.options.remove "-rom"
 retrochamber.lib.options.remove "-mount-as-directory"
 
-FILE_EXTENSIONS=(*.iso *.cue *.chd *.cso *.ciso *.gcz *.rvz *.gdi *.wia *.wux)
+FILE_EXTENSIONS=(*.iso *.cue *.chd *.cso *.ciso *.gcz *.gdi *.msu *.rvz *.wia *.wux)
 ZIP_EXTENSIONS=(zip rar 7z tgz xz)
 
 ZIP_PATH="$(realpath "${CWD_LAUNCHER}/../tmp/archive")"
