@@ -162,6 +162,7 @@ update_gitlab () {
 
   PROJECTS=(
     ["es-de/emulationstation-de"]="ES-DE_x64.AppImage"
+    ["Miguel-hrvs/ppsspp-appimage"]="V[0-9.]*"
   )
   URL="https://gitlab.com/api/v4/projects"
   URL_RELEASE="releases"
@@ -170,9 +171,16 @@ update_gitlab () {
     PROJECT_FILENAME="${PROJECTS[$PROJECT]}"
     retrochamber.exec.update.debug "DEBUG: (${FUNCNAME[0]}) Processing '${PROJECT}'."
 
+    PROJECT_REDIRECT_PRINT=""
+    TARGET_FILENAME=$(echo "${PROJECT}" | cut -d'/' -f2)
+    if [ -n "$(echo "${PROJECT}" | grep '>')" ]; then
+      TARGET_FILENAME=$(echo "${PROJECT}" | cut -d'>' -f2)
+      PROJECT_REDIRECT_PRINT=">$(retrochamber.lib.print.blue "${TARGET_FILENAME}")"
+      PROJECT=$(echo "${PROJECT}" | cut -d'>' -f1)
+    fi
+
     PROJECT_PRINT=$(retrochamber.lib.print.blue "${PROJECT}")
     API_RESPONSE=$(curl --silent "${URL}/$(echo "${PROJECT}" | sed -e 's/\//%2F/g')/${URL_RELEASE}")
-    TARGET_FILENAME=$(echo "${PROJECT}" | cut -d'/' -f2)
     VERSION_FILE="${TARGET_APPIMAGE_PATH}/VERSION.${TARGET_FILENAME}"
     TAG_NAME=$(echo "${API_RESPONSE}" | jq -r '.[0].tag_name')
     if [ -z "$(echo "${TAG_NAME}" | grep '[0-9]')" ]; then
@@ -180,8 +188,8 @@ update_gitlab () {
     fi
     DOWNLOAD_URL=$(echo "${API_RESPONSE}" | jq -r "[.[].assets.links[] | select(.name | match(\"^${PROJECT_FILENAME}$\"))][0] | .direct_asset_url")
 
-    if [ -z "${DOWNLOAD_URL}" ]; then
-      retrochamber.lib.print.fail "${SCRIPT_UPDATE}" "Cannot find AppImage download URL for project '${PROJECT_PRINT}'."
+    if [ -z "${DOWNLOAD_URL}" ] || [ "${DOWNLOAD_URL}" == "null" ]; then
+      retrochamber.lib.print.fail "${SCRIPT_UPDATE}" "Cannot find AppImage download URL for project '${PROJECT_PRINT}${PROJECT_REDIRECT_PRINT}'."
       exit 10
     fi
 
@@ -190,7 +198,7 @@ update_gitlab () {
     fi
 
     if [ "$(cat "${VERSION_FILE}")" == "${TAG_NAME}" ]; then
-      retrochamber.lib.print.info "${SCRIPT_UPDATE}" "No update for project '${PROJECT_PRINT}'."
+      retrochamber.lib.print.info "${SCRIPT_UPDATE}" "No update for project '${PROJECT_PRINT}${PROJECT_REDIRECT_PRINT}'."
       continue
     fi
 

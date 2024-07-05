@@ -117,6 +117,9 @@ Libretro cores are based on nightly builds.
 |                        |                 | Play! - Setup Mode       | 🟢       |
 |                        |                 | Play! - Play Mode        | 🟢       |
 |                        |                 |                          |         |                                                |
+| ***PSP***              |                 |                          |         |
+| PPSSPP                 | 🟢               | PPSSPP                   | 🟢       |
+|                        |                 |                          |         |                                                |
 | ***PSX***              |                 |                          |         |
 | Swanstation            | 🟢               | Duckstation - Setup Mode | 🟢       |
 | PCSX ReARMed           | 🟢               | Duckstation - Play Mode  | 🟢       |

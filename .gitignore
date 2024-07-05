@@ -7,9 +7,9 @@ ES-DE/settings/
 binaries/*.AppImage
 binaries/VERSION.*
 exec/GITHUB_TOKEN
+exec/SETUP
 facades/**/*.log
 logs/*.log
 roms/
 tmp/archive/
-SETUP
 tree.html
